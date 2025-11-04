@@ -46,7 +46,7 @@
 
 	<menuitem id="menu_c_ait_discipline"
             name="Discipline"
-            parent="project.menu_project_configuration"
+            parent="base_setup.menu_config"
             action="action_c_ait_discipline"
             sequence="10"
 	/>
