@@ -1,0 +1,13 @@
+<odoo>
+    <record id="extend_timesheet_list_in_task_form" model="ir.ui.view">
+        <field name="name">Extend Timesheets List in Task Form</field>
+        <field name="model">project.task</field>
+        <field name="inherit_id" ref="hr_timesheet.view_task_form2_inherited"/>
+        <field name="arch" type="xml">
+            <xpath expr="//page[@id='timesheets_tab']//field[@name='timesheet_ids']/list" position="inside">
+                <field name="c_ait_discipline_id"/>
+                <field name="c_ait_employment_status_id" widget="many2many_tags"/>
+            </xpath>
+        </field>
+    </record>
+</odoo>

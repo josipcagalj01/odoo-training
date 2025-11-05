@@ -1,0 +1,17 @@
+<odoo>
+    <record id="view_task_form_inherit_milestones" model="ir.ui.view">
+        <field name="name">project.task.form.inherit.milestones</field>
+        <field name="model">project.task</field>
+        <field name="inherit_id" ref="hr_timesheet.view_task_form2_inherited"/>
+        <field name="arch" type="xml">
+            <field name="milestone_id" position="attributes">
+                <attribute name="domain">[('c_ait_is_external', '=', False)]</attribute>
+            </field>
+            <field name="milestone_id" position="after">
+                <field name="c_ait_external_milestone_id"
+                       domain="[('c_ait_is_external', '=', True),
+                                ('c_ait_partner_id', '=', partner_id)]"/>
+            </field>
+        </field>
+    </record>
+</odoo>

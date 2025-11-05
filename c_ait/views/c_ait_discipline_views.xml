@@ -40,15 +40,16 @@
         <field name="help" type="html">
             <p class="o_view_nocontent_smiling_face">
                 Create your first discipline
-          </p>
+            </p>
         </field>
     </record>
 
-	<menuitem id="menu_c_ait_discipline"
-            name="Discipline"
-            parent="project.menu_project_config"
-            action="action_c_ait_discipline"
-            sequence="10"
-	/>
+  <!-- MENU ITEM -->
+    <menuitem id="menu_c_ait_discipline"
+        name="Discipline"
+        parent="project.menu_project_config"
+        action="action_c_ait_discipline"
+        sequence="10"
+    />
 
 </odoo>
