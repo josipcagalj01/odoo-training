@@ -1,0 +1,54 @@
+<odoo>
+    <record id="c_ait_work_perspective_list_view" model="ir.ui.view">
+        <field name="name">c.ait.work.perspective.tree</field>
+        <field name="model">c.ait.work.perspective</field>
+        <field name="arch" type="xml">
+            <list string="Radne perspektive">
+                <field name="name"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="c_ait_work_perspective_form_view" model="ir.ui.view">
+        <field name="name">c.ait.work.perspective.form</field>
+        <field name="model">c.ait.work.perspective</field>
+        <field name="arch" type="xml">
+            <form string="Radne perspektive">
+                <sheet>
+                    <group>
+                        <field name="name"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="c_ait_work_perspective_search_view" model="ir.ui.view">
+        <field name="name">c.ait.work.perspective.search</field>
+        <field name="model">c.ait.work.perspective</field>
+        <field name="arch" type="xml">
+            <search string="Search Employment Status">
+                <field name="name"/>
+            </search>
+        </field>
+    </record>
+
+    <record id="c_ait_work_perspective_action" model="ir.actions.act_window">
+        <field name="name">Work perspective</field>
+        <field name="res_model">c.ait.work.perspective</field>
+        <field name="view_mode">list,form</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                Create your first work perspective
+            </p>
+        </field>
+    </record>
+
+    <menuitem id="c_ait_work_perspective_menu"
+        name="Radne perspektive"
+        parent="project.menu_project_config"
+        action="c_ait_work_perspective_action"
+        sequence="10"
+    />
+
+</odoo>

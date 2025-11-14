@@ -1,0 +1,67 @@
+<odoo>
+    <record id="c_ait_tariff_list_view" model="ir.ui.view">
+        <field name="name">c.ait.tariff.tree</field>
+        <field name="model">c.ait.tariff</field>
+        <field name="arch" type="xml">
+            <list string="Tarife">
+                <field name="name"/>
+                <field name="hourly_rate"/>
+                <field name="partner_id"/>
+                <field name="invoice_product_id"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="c_ait_tariff_form_view" model="ir.ui.view">
+        <field name="name">c.ait.tariff.form</field>
+        <field name="model">c.ait.tariff</field>
+        <field name="arch" type="xml">
+            <form string="Tarife">
+                <sheet>
+                    <group>
+                        <field name="name"/>
+                        <field name="hourly_rate"/>
+                        <field name="partner_id"/>
+                        <field name="invoice_product_id"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="c_ait_tariff_search_view" model="ir.ui.view">
+        <field name="name">c.ait.tariff.search</field>
+        <field name="model">c.ait.tariff</field>
+        <field name="arch" type="xml">
+            <search string="Search Tariffs">
+                <field name="name"/>
+                <field name="hourly_rate"/>
+                <field name="partner_id"/>
+                <group expand="0" string="Group By">
+                    <filter name="group_by_partner" string="Partner" context="{'group_by': 'partner_id'}"/>
+                    <filter name="group_by_product" string="Partner" context="{'group_by': 'invoice_product_id'}"/>
+                </group>
+            </search>
+        </field>
+    </record>
+
+    <record id="c_ait_tariff_action" model="ir.actions.act_window">
+        <field name="name">Discipline</field>
+        <field name="res_model">c.ait.tariff</field>
+        <field name="view_mode">list,form</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                Create your first tariff
+            </p>
+        </field>
+    </record>
+
+  <!-- MENU ITEM -->
+    <menuitem id="c_ait_tariff_menu"
+        name="Tariffs"
+        parent="project.menu_project_config"
+        action="c_ait_tariff_action"
+        sequence="10"
+    />
+
+</odoo>

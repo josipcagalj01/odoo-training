@@ -1,3 +1,15 @@
 id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
 access_c_ait_discipline_all,c.ait.discipline all,model_c_ait_discipline,base.group_user,1,1,1,1
 access_c_ait_employment_status_all,c.ait.employment.status,model_c_ait_employment_status,base.group_user,1,1,1,1
+access_c_ait_work_perspective_all,c.ait.work.perspective,model_c_ait_work_perspective,base.group_user,1,1,1,1
+access_c_ait_analytic_line_report_all,c.ait.analytic.line.report,model_c_ait_analytic_line_report,base.group_user,1,1,1,1
+access_c_ait_resesrvation_all,c.ait.reservation,model_c_ait_reservation,base.group_user,1,1,1,1
+access_c_ait_contract_all,c.ait.contract all,model_c_ait_contract,base.group_user,1,1,1,1
+access_c_ait_contract_all,c.ait.contract all,model_c_ait_contract,base.group_user,1,1,1,1
+access_c_ait_project_task_report_all,c.ait.project.task.report all,model_c_ait_project_task_report,base.group_user,1,1,1,1
+access_c_ait_tariff_all,c.ait.tariff all,model_c_ait_tariff,base.group_user,1,1,1,1
+access_c_ait_plan_all,c.ait.plan all,model_c_ait_plan,base.group_user,1,1,1,1
+access_c_ait_plan_line_all,c.ait.plan.line all,model_c_ait_plan_line,base.group_user,1,1,1,1
+access_c_ait_plan_type_all,c.ait.plan.type all,model_c_ait_plan_type,base.group_user,1,1,1,1
+access_c_ait_create_invoice_wizard_all,c.ait.create.invoice.wizard all,model_c_ait_create_invoice_wizard,base.group_user,1,1,1,1
+access_c_ait_project_employee_tariff_all,c.ait.project.employee.tariff all,model_c_ait_project_employee_tariff,base.group_user,1,1,1,1

@@ -1,6 +1,6 @@
 <odoo>
-    <record id="view_c_ait_discipline_tree" model="ir.ui.view">
-        <field name="name">c.ait.discipline.tree</field>
+    <record id="c_ait_discipline_list_view" model="ir.ui.view">
+        <field name="name">c.ait.discipline.list</field>
         <field name="model">c.ait.discipline</field>
         <field name="arch" type="xml">
             <list string="Discipline">
@@ -9,7 +9,7 @@
         </field>
     </record>
 
-    <record id="view_c_ait_discipline_form" model="ir.ui.view">
+    <record id="c_ait_discipline_form_view" model="ir.ui.view">
         <field name="name">c.ait.discipline.form</field>
         <field name="model">c.ait.discipline</field>
         <field name="arch" type="xml">
@@ -23,7 +23,7 @@
         </field>
     </record>
 
-    <record id="view_c_ait_discipline_search" model="ir.ui.view">
+    <record id="c_ait_discipline_search_view" model="ir.ui.view">
         <field name="name">c.ait.discipline.search</field>
         <field name="model">c.ait.discipline</field>
         <field name="arch" type="xml">
@@ -33,7 +33,7 @@
         </field>
     </record>
 
-    <record id="action_c_ait_discipline" model="ir.actions.act_window">
+    <record id="c_ait_discipline_action" model="ir.actions.act_window">
         <field name="name">Discipline</field>
         <field name="res_model">c.ait.discipline</field>
         <field name="view_mode">list,form</field>
@@ -45,10 +45,10 @@
     </record>
 
   <!-- MENU ITEM -->
-    <menuitem id="menu_c_ait_discipline"
+    <menuitem id="c_ait_discipline_menu"
         name="Discipline"
         parent="project.menu_project_config"
-        action="action_c_ait_discipline"
+        action="c_ait_discipline_action"
         sequence="10"
     />
 

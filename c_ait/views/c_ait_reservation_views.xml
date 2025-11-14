@@ -1,0 +1,72 @@
+<odoo>
+    <record id="c_ait_reservation_list_view" model="ir.ui.view">
+        <field name="name">c.ait.reservation.list</field>
+        <field name="model">c.ait.reservation</field>
+        <field name="arch" type="xml">
+            <list string="Reservations">
+                <field name="analytic_account_id"/>
+                <field name="date"/>
+                <field name="description"/>
+                <field name="type" />
+                <field name="amount"/>
+                <field name="status" />
+            </list>
+        </field>
+    </record>
+
+    <record id="c_ait_reservation_form_view" model="ir.ui.view">
+        <field name="name">c.ait.reservation.form</field>
+        <field name="model">c.ait.reservation</field>
+        <field name="arch" type="xml">
+            <form string="Reservations">
+                <sheet>
+                    <group>
+                        <field name="analytic_account_id"/>
+                        <field name="date"/>
+                        <field name="description"/>
+                        <field name="type" />
+                        <field name="amount"/>
+                        <field name="status" readonly="1"/>
+                    </group>
+                    <button name="confirm_reservation" string="Potvrdi" type="object" class="btn btn-primary" invisible="status != 'draft'"/>
+
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="c_ait_reservation_search_view" model="ir.ui.view">
+        <field name="name">c.ait.reservation.search</field>
+        <field name="model">c.ait.reservation</field>
+        <field name="arch" type="xml">
+        <search string="Reservation Search">
+            <filter name="filter_task" string="Samo potvrđene" domain="[('status','=','confirmed')]"/>
+            <filter name="expired_reservations" string="Isteklo" domain="[('date','&lt;',context_today().strftime('%Y-%m-%d'))]"/>
+            <filter name="expire_in_7_days" string="Ističu 7 dana" domain="[('date','&lt;',(context_today() + datetime.timedelta(days=7)).strftime('%Y-%m-%d'))]"/>
+            <filter name="expire_in_15_days" string="Ističu u 15 dana" domain="[('date','&lt;',(context_today() + datetime.timedelta(days=15)).strftime('%Y-%m-%d'))]"/>
+
+
+        </search>
+      </field>
+    </record>
+
+    <record id="c_ait_reservation_action" model="ir.actions.act_window">
+        <field name="name">Reservations</field>
+        <field name="res_model">c.ait.reservation</field>
+        <field name="view_mode">list,form</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                Create your first reservation
+            </p>
+        </field>
+    </record>
+
+  <!-- MENU ITEM -->
+    <menuitem id="menu_c_ait_reservations"
+        name="Reservations"
+        parent="project.menu_project_config"
+        action="c_ait_reservation_action"
+        sequence="10"
+    />
+
+</odoo>

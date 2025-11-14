@@ -1,0 +1,90 @@
+<odoo>
+    <record id="c_ait_plan_list_view" model="ir.ui.view">
+        <field name="name">c.ait.plan.tree</field>
+        <field name="model">c.ait.plan</field>
+        <field name="arch" type="xml">
+            <list string="Operational Plans">
+                <field name="name"/>
+                <field name="period_type"/>
+                <field name="date_from"/>
+                <field name="date_to"/>
+                <field name="planned_amount"/>
+                <field name="state"/>
+                <field name="type_id"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="c_ait_plan_form_view" model="ir.ui.view">
+        <field name="name">c.ait.plan.form</field>
+        <field name="model">c.ait.plan</field>
+        <field name="arch" type="xml">
+            <form string="Operational plans">
+                <header>
+                    <field name="state" widget="statusbar" options="{'clickable': '1', 'fold_field': 'fold'}"/>
+                    <button name="set_state_planned" string="Potvrdi" type="object" class="btn btn-primary" invisible="state != 'draft'"/>
+                </header>
+                <sheet>
+                    <group>
+                        <field name="name"/>
+                        <field name="period_type"/>
+                        <field name="date_from"/>
+                        <field name="date_to"/>
+                        <field name="planned_amount"/>
+                        <field name="state"/>
+                        <field name="type_id"/>
+                    </group>
+
+                    <field name="line_ids" nolabel="1" colspan="2"/>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="c_ait_plan_search_view" model="ir.ui.view">
+        <field name="name">c.ait.plan.search</field>
+        <field name="model">c.ait.plan</field>
+        <field name="arch" type="xml">
+            <search string="Search Operational Plans">
+                <field name="name"/>
+                <field name="period_type"/>
+                <field name="date_from"/>
+                <field name="date_to"/>
+                <field name="planned_amount"/>
+                <field name="state"/>
+                <field name="type_id"/>
+
+                <group expand="0" string="Group By">
+                    <filter name="group_by_state" string="Date" context="{'group_by': 'state'}"/>
+                    <filter name="group_by_period" string="Project" context="{'group_by': 'period_type'}"/>
+                    <filter name="group_by_type" string="Tip" context="{'group_by': 'type_id'}"/>
+                </group>
+            </search>
+        </field>
+    </record>
+
+    <record id="c_ait_plan_action" model="ir.actions.act_window">
+        <field name="name">Operational Plans</field>
+        <field name="res_model">c.ait.plan</field>
+        <field name="view_mode">list,form</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                Create your first plan
+            </p>
+        </field>
+    </record>
+
+  <!-- MENU ITEM -->
+    <menuitem id="project_planning_menu"
+        name="Planning"
+        parent="project.menu_project_report"
+        sequence="13"
+    />
+    <menuitem id="c_ait_plan_menu"
+        name="Operational plans"
+        parent="menu_project_planning"
+        action="c_ait_plan_action"
+        sequence="14"
+    />
+
+</odoo>

@@ -1,0 +1,10 @@
+<odoo>
+    <report
+        id="action_report_project_hours_matrix"
+        model="project.project"
+        string="Izvještaj o radnim satima"
+        report_type="qweb-pdf"
+        name="c_ait.report_project_hours_matrix"
+        file="c_ait.report_project_hours_matrix"
+    />
+</odoo>

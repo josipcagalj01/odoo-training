@@ -1,0 +1,45 @@
+<odoo>
+    <template id="report_project_hours_matrix">
+        <t t-call="web.html_container">
+            <t t-foreach="docs" t-as="project">
+                <div class="page">
+                    <h2>Projekt: <t t-esc="project.name"/></h2>
+                    <table class="table table-sm table-bordered">
+                        <thead>
+                            <tr>
+                                <th>Datum</th>
+                                <t t-foreach="employees" t-as="emp">
+                                    <th><t t-esc="emp.name"/></th>
+                                </t>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <t t-foreach="dates" t-as="date">
+                                <tr>
+                                    <td><t t-esc="date"/></td>
+                                    <t t-foreach="employees" t-as="emp">
+                                        <td>
+                                            <t t-esc="matrix[date].get(emp, 0.0)"/>
+                                        </td>
+                                    </t>
+                                </tr>
+                            </t>
+                        </tbody>
+                    </table>
+                </div>
+            </t>
+        </t>
+    </template>
+
+
+
+    <record id="action_project_report_matrix" model="ir.actions.report">
+        <field name="name">Izvještaj radnih sati</field>
+        <field name="model">project.project</field>
+        <field name="report_type">qweb-pdf</field>
+        <field name="report_name">c_ait.report_project_hours_matrix</field>
+        <field name="report_file">c_ait.report_project_hours_matrix</field>
+        <field name="binding_model_id" ref="model_project_project"/>
+    </record>
+
+</odoo>

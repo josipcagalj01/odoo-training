@@ -1,0 +1,138 @@
+<odoo>
+    <record id="c_ait_plan_line_list_view" model="ir.ui.view">
+        <field name="name">c.ait.plan.line.list</field>
+        <field name="model">c.ait.plan.line</field>
+        <field name="arch" type="xml">
+            <list string="Operational Planning Items">
+                <field name="plan_id"/>
+                <field name="employee_id"/>
+                <field name="department_id"/>
+                <field name="discipline_id"/>
+                <field name="customer_partner_id"/>
+                <field name="subcon_partner_id"/>
+                <field name="plan_state"/>
+                <field name="date_from"/>
+                <field name="date_to"/>
+                <field name="project_id"/>
+                <field name="task_id"/>
+                <field name="parent_task_id"/>
+                <field name="milestone_id"/>
+                <field name="external_milestone_id"/>
+                <field name="client_reference"/>
+                <field name="number_hours"/>
+                <field name="realized_hours"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="c_ait_plan_line_pivot_view" model="ir.ui.view">
+        <field name="name">c.ait.plan.line.pivot</field>
+        <field name="model">c.ait.plan.line</field>
+        <field name="arch" type="xml">
+            <pivot string="Operational Planning Items">
+                <field name="plan_id"/>
+                <field name="plan_type"/>
+                <field name="employee_id"/>
+                <field name="department_id"/>
+                <field name="discipline_id"/>
+                <field name="customer_partner_id"/>
+                <field name="subcon_partner_id"/>
+                <field name="plan_state"/>
+                <field name="date_from"/>
+                <field name="date_to"/>
+                <field name="project_id"/>
+                <field name="task_id"/>
+                <field name="parent_task_id"/>
+                <field name="milestone_id"/>
+                <field name="external_milestone_id"/>
+                <field name="client_reference"/>
+                <field name="number_hours"/>
+                <field name="realized_hours"/>
+            </pivot>
+        </field>
+    </record>
+
+    <record id="c_ait_plan_line_form_view" model="ir.ui.view">
+        <field name="name">c.ait.plan.line.form</field>
+        <field name="model">c.ait.plan.line</field>
+        <field name="arch" type="xml">
+            <form string="Operational planning items">
+                <sheet>
+                    <group>
+                        <field name="plan_id"/>
+                        <field name="plan_type"/>
+                        <field name="employee_id"/>
+                        <field name="department_id"/>
+                        <field name="discipline_id"/>
+                        <field name="customer_partner_id"/>
+                        <field name="subcon_partner_id"/>
+                        <field name="plan_state"/>
+                        <field name="date_from"/>
+                        <field name="date_to"/>
+                        <field name="project_id"/>
+                        <field name="task_id"/>
+                        <field name="parent_task_id"/>
+                        <field name="milestone_id"/>
+                        <field name="external_milestone_id"/>
+                        <field name="client_reference"/>
+                        <field name="number_hours"/>
+                        <field name="realized_hours"/>
+                    </group>
+
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="c_ait_plan_line_search_view" model="ir.ui.view">
+        <field name="name">c.ait.plan.line.search</field>
+        <field name="model">c.ait.plan.line</field>
+        <field name="arch" type="xml">
+            <search string="Search Operational planning items">
+                <field name="plan_id"/>
+                <field name="plan_type"/>
+                <field name="employee_id"/>
+                <field name="department_id"/>
+                <field name="discipline_id"/>
+                <field name="customer_partner_id"/>
+                <field name="subcon_partner_id"/>
+                <field name="plan_state"/>
+                <field name="date_from"/>
+                <field name="date_to"/>
+                <field name="project_id"/>
+                <field name="task_id"/>
+                <field name="parent_task_id"/>
+                <field name="milestone_id"/>
+                <field name="external_milestone_id"/>
+                <field name="client_reference"/>
+                <field name="number_hours"/>
+
+                <group expand="0" string="Group By">
+                    <filter name="group_by_employee" string="Employee" context="{'group_by': 'employee_id'}"/>
+                    <filter name="group_by_plan" string="Plan" context="{'group_by': 'plan_id'}"/>
+                    <filter name="group_by_plan_state" string="Plan state" context="{'group_by': 'plan_state'}"/>
+                    <filter name="group_by_plan_type" string="Plan type" context="{'group_by': 'plan_type'}"/>
+                </group>
+            </search>
+        </field>
+    </record>
+
+    <record id="c_ait_plan_line_action" model="ir.actions.act_window">
+        <field name="name">Operational Planning items</field>
+        <field name="res_model">c.ait.plan.line</field>
+        <field name="view_mode">pivot,list,form</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                Create your first operational planning item
+            </p>
+        </field>
+    </record>
+
+    <menuitem id="c_ait_plan_line_menu"
+        name="Operational planning items"
+        parent="project_planning_menu"
+        action="c_ait_plan_line_action"
+        sequence="14"
+    />
+
+</odoo>

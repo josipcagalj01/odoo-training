@@ -1,0 +1,55 @@
+<odoo>
+    <record id="c_ait_employment_status_list_view" model="ir.ui.view">
+        <field name="name">c.ait.employment.status.tree</field>
+        <field name="model">c.ait.employment.status</field>
+        <field name="arch" type="xml">
+            <list string="Vrste zaposlenja">
+                <field name="name"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="c_ait_employment_status_form_view" model="ir.ui.view">
+        <field name="name">c.ait.employment.status.form</field>
+        <field name="model">c.ait.employment.status</field>
+        <field name="arch" type="xml">
+            <form string="Vrste zaposlenja">
+                <sheet>
+                    <group>
+                        <field name="name"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="c_ait_employment_status_search_view" model="ir.ui.view">
+        <field name="name">c.ait.employment.status.search</field>
+        <field name="model">c.ait.employment.status</field>
+        <field name="arch" type="xml">
+            <search string="Search Employment Status">
+                <field name="name"/>
+            </search>
+        </field>
+    </record>
+
+    <record id="c_ait_employment_status_action" model="ir.actions.act_window">
+        <field name="name">Employment status</field>
+        <field name="res_model">c.ait.employment.status</field>
+        <field name="view_mode">list,form</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                Create your first employment status
+            </p>
+        </field>
+    </record>
+
+  <!-- MENU ITEM -->
+    <menuitem id="menu_c_ait_employment_status"
+        name="Tipovi zaposlenja"
+        parent="project.menu_project_config"
+        action="c_ait_employment_status_action"
+        sequence="10"
+    />
+
+</odoo>

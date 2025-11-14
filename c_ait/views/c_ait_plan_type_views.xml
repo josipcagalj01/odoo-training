@@ -1,0 +1,54 @@
+<odoo>
+    <record id="c_ait_plan_type_list_view" model="ir.ui.view">
+        <field name="name">c.ait.plan.type.list</field>
+        <field name="model">c.ait.plan.type</field>
+        <field name="arch" type="xml">
+            <list string="Tipovi plana">
+                <field name="name"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="c_ait_plan_type_form_view" model="ir.ui.view">
+        <field name="name">c.ait.plan.type.form</field>
+        <field name="model">c.ait.plan.type</field>
+        <field name="arch" type="xml">
+            <form string="Plan Types">
+                <sheet>
+                    <group>
+                        <field name="name"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="c_ait_plan_type_search_view" model="ir.ui.view">
+        <field name="name">c.ait.plan.type.search</field>
+        <field name="model">c.ait.plan.type</field>
+        <field name="arch" type="xml">
+            <search string="Search Plan Types">
+                <field name="name"/>
+            </search>
+        </field>
+    </record>
+
+    <record id="c_ait_plan_type_action" model="ir.actions.act_window">
+        <field name="name">Discipline</field>
+        <field name="res_model">c.ait.plan.type</field>
+        <field name="view_mode">list,form</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                Create your first plan type
+            </p>
+        </field>
+    </record>
+
+    <menuitem id="c_ait_plan_type_menu"
+        name="Tipovi planova"
+        parent="project.menu_project_config"
+        action="c_ait_plan_type_action"
+        sequence="10"
+    />
+
+</odoo>

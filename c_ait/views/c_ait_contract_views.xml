@@ -1,0 +1,60 @@
+<odoo>
+    <record id="c_ait_contract_list_view" model="ir.ui.view">
+        <field name="name">c.ait.contract.tree</field>
+        <field name="model">c.ait.contract</field>
+        <field name="arch" type="xml">
+            <list string="Ugovori">
+                <field name="number"/>
+                <field name="date"/>
+                <field name="partner_id"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="c_ait_contract_form_view" model="ir.ui.view">
+        <field name="name">c.ait.contract.form</field>
+        <field name="model">c.ait.contract</field>
+        <field name="arch" type="xml">
+            <form string="Ugovori">
+                <sheet>
+                    <group>
+                        <field name="number"/>
+                        <field name="date"/>
+                        <field name="partner_id"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="c_ait_contract_search_view" model="ir.ui.view">
+        <field name="name">c.ait.contract.search</field>
+        <field name="model">c.ait.contract</field>
+        <field name="arch" type="xml">
+            <search string="Search Contract">
+                <field name="number"/>
+                <field name="date"/>
+                <field name="partner_id"/>
+            </search>
+        </field>
+    </record>
+
+    <record id="c_ait_contract_action_view" model="ir.actions.act_window">
+        <field name="name">Ugovori</field>
+        <field name="res_model">c.ait.contract</field>
+        <field name="view_mode">list,form</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                Create your first contract
+            </p>
+        </field>
+    </record>
+
+    <menuitem id="c_ait_contract_menu"
+        name="Ugovori"
+        parent="project.menu_project_config"
+        action="c_ait_contract_action"
+        sequence="10"
+    />
+
+</odoo>

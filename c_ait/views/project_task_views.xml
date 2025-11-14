@@ -14,4 +14,14 @@
             </field>
         </field>
     </record>
+    <record id="view_task_form_inherit_client_reference" model="ir.ui.view">
+        <field name="name">project.task.form.inherit.client.reference</field>
+        <field name="model">project.task</field>
+        <field name="inherit_id" ref="project.view_task_form2"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='date_last_stage_update']" position="after">
+                <field name="c_ait_client_reference" string="Client refrence" />
+            </xpath>
+        </field>
+    </record>
 </odoo>

@@ -4,10 +4,21 @@
         <field name="model">project.task</field>
         <field name="inherit_id" ref="hr_timesheet.view_task_form2_inherited"/>
         <field name="arch" type="xml">
-            <xpath expr="//page[@id='timesheets_tab']//field[@name='timesheet_ids']/list" position="inside">
+            <xpath expr="//field[@name='timesheet_ids']/list" position="inside">
+                <!-- <field name="amount" /> -->
+
+                <field name="c_ait_tariff_id" required="1" domain="[('id', 'in', c_ait_project_allowed_tariff_ids)]"/>
+                <field name="c_ait_billable_hours" />
                 <field name="c_ait_discipline_id"/>
-                <field name="c_ait_employment_status_id" widget="many2many_tags"/>
+                <field name="c_ait_employment_status_id"/>
+                <field name="c_ait_work_perspective_id"/>
+                <field name="c_ait_invoice_status"/>
+                <field name="c_ait_contract_id" readonly="1" string="Broj ugovora"/>
+                <field name="c_ait_subcon_id" string="Podizvođač"/>
+                <field name="c_ait_subcon_state" readonly="1" string="Stanje podizvođača"/>
+                <field name="c_ait_client_reference" readonly="1"/>
             </xpath>
         </field>
     </record>
+
 </odoo>

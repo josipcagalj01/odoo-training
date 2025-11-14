@@ -4,3 +4,12 @@ from . import project
 from . import account_analytic_line
 from . import project_task
 from . import project_milestone
+from . import c_alt_work_perspective
+from . import c_ait_reservation
+from . import hr_employee
+from . import c_ait_contract
+from . import c_ait_tariff
+from . import c_ait_plan
+from . import c_ait_plan_line
+from . import c_ait_plan_type
+from . import c_ait_project_employee_tariff

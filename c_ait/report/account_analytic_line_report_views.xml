@@ -1,0 +1,64 @@
+<odoo>
+    <record id="view_c_ait_analytic_line_report_pivot" model="ir.ui.view">
+        <field name="name">c.ait.analytic.line.report.pivot</field>
+        <field name="model">c.ait.analytic.line.report</field>
+        <field name="arch" type="xml">
+            <pivot string="Analytic Line Report">
+                <field name="date" type="row"/>
+                <field name="project_id" type="row"/>
+                <field name="task_id" type="row"/>
+                <field name="account_id" type="row"/>
+                <field name="amount" type="measure"/>
+                <field name="unit_amount" type="measure" />
+                <field name="c_ait_billable_hours" type="measure" />
+            </pivot>
+        </field>
+    </record>
+    <data>
+        <record id="view_c_ait_analytic_line_report_search" model="ir.ui.view">
+            <field name="name">c.ait.analytic.line.report.search</field>
+            <field name="model">c.ait.analytic.line.report</field>
+            <field name="arch" type="xml">
+        <search string="Analytic Line Report Search">
+
+          <filter name="filter_project" string="Has Project" domain="[('project_id','!=',False)]"/>
+          <filter name="filter_task" string="Has Task" domain="[('task_id','!=',False)]"/>
+          <filter name="filter_this_year" string="This Year"
+                  domain="[('date','&gt;=','2025-01-01'),('date','&lt;=','2025-12-31')]"/>
+
+
+          <field name="date" string="From Date" filter_domain="[('date','&gt;=',self)]" />
+          <field name="date" string="To Date" filter_domain="[('date','&lt;=',self)]"/>
+
+          <field name="project_id"/>
+          <field name="task_id"/>
+          <field name="account_id"/>
+          <field name="date"/>
+
+          <group expand="0" string="Group By">
+            <filter name="group_by_date" string="Date" context="{'group_by': 'date'}"/>
+            <filter name="group_by_project" string="Project" context="{'group_by': 'project_id'}"/>
+            <filter name="group_by_task" string="Task" context="{'group_by': 'task_id'}"/>
+          </group>
+
+        </search>
+      </field>
+    </record>
+  </data>
+
+    <record id="action_c_ait_analytic_line_report" model="ir.actions.act_window">
+        <field name="name">Analytic Line Report</field>
+        <field name="res_model">c.ait.analytic.line.report</field>
+        <field name="view_id" ref="view_c_ait_analytic_line_report_pivot"/>
+        <field name="view_mode">pivot</field>
+        <field name="help" type="html">
+            <p>Analytic lines grouped by project, task, and account.</p>
+        </field>
+    </record>
+    <menuitem id="menu_c_ait_analytic_line_report"
+          name="Analytic Line Report"
+          parent="project.menu_project_report"
+          action="action_c_ait_analytic_line_report"
+          sequence="11"
+    />
+</odoo>
