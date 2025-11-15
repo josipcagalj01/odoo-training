@@ -39,7 +39,7 @@
         </field>
     </record>
 
-    <record id="c_ait_contract_action_view" model="ir.actions.act_window">
+    <record id="c_ait_contract_action" model="ir.actions.act_window">
         <field name="name">Ugovori</field>
         <field name="res_model">c.ait.contract</field>
         <field name="view_mode">list,form</field>

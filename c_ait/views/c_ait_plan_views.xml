@@ -82,7 +82,7 @@
     />
     <menuitem id="c_ait_plan_menu"
         name="Operational plans"
-        parent="menu_project_planning"
+        parent="project_planning_menu"
         action="c_ait_plan_action"
         sequence="14"
     />
